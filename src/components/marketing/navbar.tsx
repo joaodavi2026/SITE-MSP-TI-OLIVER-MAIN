@@ -1,6 +1,6 @@
 import { NAV_LINKS } from "@/constants";
+import Image from "next/image";
 import Link from "next/link";
-import Icons from "../global/icons";
 import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 import MobileMenu from "./mobile-menu";
@@ -12,10 +12,14 @@ const Navbar = () => {
                 <div className="flex items-center justify-between h-full">
                     <div className="flex items-center">
                         <Link href="/" className="flex items-center gap-2">
-                            <Icons.icon className="w-6" />
-                            <span className="text-xl font-semibold hidden lg:block">
-                                Vetra
-                            </span>
+                            <Image
+                                src="/images/oliver-logo.png"
+                                alt="Oliver Network"
+                                width={96}
+                                height={108}
+                                className="h-16 w-auto object-contain"
+                                priority
+                            />
                         </Link>
                     </div>
 
