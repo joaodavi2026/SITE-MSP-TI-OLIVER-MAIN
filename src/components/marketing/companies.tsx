@@ -1,30 +1,42 @@
 import Container from "../global/container";
-import Images from "../global/images";
+
+const SECTORS = [
+    "Indústria",
+    "Saúde",
+    "Varejo",
+    "Serviços",
+    "Logística",
+    "Educação",
+    "Construção",
+    "Escritórios de advocacia",
+];
 
 const Companies = () => {
     return (
-        <div className="relative flex flex-col items-center justify-center w-full py-20 mt-16 companies overflow-hidden">
+        <div className="companies relative mt-16 flex w-full flex-col items-center justify-center overflow-hidden py-20">
             <Container>
-                <div className="flex flex-col items-center justify-center">
-                    <h4 className="text-2xl lg:text-4xl font-medium">
-                        Trusted by <span className="font-subheading italic">leading</span> brands
-                    </h4>
+                <div className="flex flex-col items-center justify-center text-center">
+                    <h2 className="text-2xl font-medium lg:text-4xl">
+                        Operações que <span className="font-subheading italic">não podem parar</span>{" "}
+                        confiam a TI à Oliver
+                    </h2>
                 </div>
             </Container>
 
             <Container delay={0.1}>
-                <div className="flex flex-row flex-wrap items-center justify-center gap-8 max-w-xl mx-auto pt-16 text-muted-foreground transition-all">
-                    <Images.company1 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company2 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company3 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company6 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company7 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company9 className="h-7 w-auto hover:text-foreground" />
-                    <Images.company10 className="h-7 w-auto hover:text-foreground" />
+                <div className="mx-auto flex max-w-3xl flex-row flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-14 text-muted-foreground">
+                    {SECTORS.map((sector) => (
+                        <span
+                            key={sector}
+                            className="text-base font-medium transition-colors hover:text-foreground lg:text-lg"
+                        >
+                            {sector}
+                        </span>
+                    ))}
                 </div>
             </Container>
         </div>
-    )
+    );
 };
 
-export default Companies
+export default Companies;
