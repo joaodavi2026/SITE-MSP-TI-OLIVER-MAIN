@@ -47,3 +47,5 @@ next-env.d.ts
 
 dummy
 ignore
+# pnpm removido — este projeto usa npm
+pnpm-lock.yaml
