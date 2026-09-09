@@ -12,7 +12,7 @@ import { OrbitingCircles } from "../ui/orbiting-circles";
 
 const Hero = () => {
     return (
-        <div className="relative flex w-full flex-col items-center justify-center py-20">
+        <div className="relative flex w-full flex-col items-center justify-center pt-8 pb-16 lg:pt-14 lg:pb-24">
             <CursorLight intensity={0.16} />
 
             <div className="absolute left-1/2 top-0 -z-10 flex size-40 -translate-x-1/2 rounded-full bg-blue-500 blur-[10rem] lg:hidden" />

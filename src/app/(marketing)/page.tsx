@@ -24,7 +24,7 @@ const PROBLEM_POINTS = [
 
 const HomePage = () => {
     return (
-        <Wrapper className="relative py-20">
+        <Wrapper className="relative pb-20">
             <Hero />
 
             {/* O problema — quando a TI é só reativa */}
