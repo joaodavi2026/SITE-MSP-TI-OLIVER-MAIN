@@ -2,192 +2,107 @@ export type PLAN = {
     id: string;
     title: string;
     desc: string;
-    monthlyPrice: number;
-    annuallyPrice: number;
+    /** displayed price value */
+    price: string;
+    priceUnit: string;
+    priceNote: string;
     badge?: string;
     buttonText: string;
+    highlight?: boolean;
     features: string[];
-    link: string;
+    inheritsFrom?: string;
 };
 
 export const PLANS: PLAN[] = [
     {
-        id: "standard",
-        title: "Standard",
-        desc: "Perfect for solopreneurs and small teams looking to automate their content creation and social media with AI tools.",
-        monthlyPrice: 29,
-        annuallyPrice: 306,
-        buttonText: "Upgrade to Standard",
+        id: "essencial",
+        title: "Essencial",
+        desc: "Monitoramento e gestão contínuos para manter o ambiente sob controle, com atendimento sob demanda.",
+        price: "R$ 300",
+        priceUnit: "/mês",
+        priceNote: "a partir de — atendimento cobrado por hora",
+        buttonText: "Falar sobre o Essencial",
         features: [
-            "AI content (1,000 words/mo)",
-            "3 social media channels",
-            "Basic post scheduling",
-            "Content calendar",
-            "Basic analytics dashboard",
-            "2 team members",
-            "Email support"
+            "Monitoramento contínuo 24/7",
+            "Inventário automatizado de ativos",
+            "Gestão de patches e atualizações",
+            "Relatório mensal do ambiente",
+            "Atendimento seg. a sex., 07h às 19h",
+            "Atendimento cobrado por hora",
         ],
-        link: "#"
     },
     {
-        id: "mastermind",
-        title: "Mastermind",
-        desc: "Ideal for growing businesses and agencies who need advanced AI capabilities and automation to scale their marketing.",
-        monthlyPrice: 79,
-        annuallyPrice: 834,
-        badge: "Most Popular",
-        buttonText: "Upgrade to Mastermind",
+        id: "profissional",
+        title: "Profissional",
+        desc: "Para equipes que precisam de suporte ilimitado, presença em campo e detecção avançada nos servidores.",
+        price: "R$ 75",
+        priceUnit: "/usuário/mês",
+        priceNote: "a partir de — inclui tudo do Essencial",
+        badge: "Mais escolhido",
+        highlight: true,
+        buttonText: "Falar sobre o Profissional",
+        inheritsFrom: "Essencial",
         features: [
-            "AI content (10,000 words/mo)",
-            "Advanced AI copywriting",
-            "Multi-language content generation",
-            "Custom brand voice training",
-            "Custom workflow automation",
-            "Priority 24/7 support",
-            "Up to 10 team members"
+            "Suporte remoto ilimitado",
+            "Atendimento presencial ilimitado",
+            "EDR em servidores",
+            "Prioridade no atendimento",
         ],
-        link: "#"
     },
-    // {
-    //     id: "enterprise",
-    //     title: "Enterprise",
-    //     desc: "Full-scale AI marketing solution for large organizations",
-    //     monthlyPrice: 199,
-    //     annuallyPrice: 2101,
-    //     badge: "Custom AI Solutions",
-    //     buttonText: "Contact Sales",
-    //     features: [
-    //         "Unlimited AI content",
-    //         "Custom AI model training",
-    //         "Advanced automation workflows",
-    //         "Multi-brand management",
-    //         "API access",
-    //         "Unlimited team members",
-    //         "24/7 priority support",
-    //         "Dedicated success manager",
-    //     ],
-    //     link: "https://stripe.com/enterprise-plan-link"
-    // }
+    {
+        id: "premium",
+        title: "Premium",
+        desc: "Gestão de TI completa: um gestor dedicado, planejamento tecnológico e governança conduzindo o ambiente.",
+        price: "R$ 109",
+        priceUnit: "/usuário/mês",
+        priceNote: "a partir de — inclui tudo do Profissional",
+        buttonText: "Falar sobre o Premium",
+        inheritsFrom: "Profissional",
+        features: [
+            "Visita mensal de Gestor de TI",
+            "Planejamento tecnológico anual",
+            "Infraestrutura programada",
+            "Governança de TI",
+            "Segurança avançada",
+        ],
+    },
 ];
 
 export const PLANS_FAQ = [
     {
         id: 1,
-        question: "How does the AI content generation work?",
-        answer: "Our AI generates high-quality marketing content across various formats including social media posts, email campaigns, and blog articles, while maintaining your brand voice."
+        question: "Como é feita a cobrança por usuário?",
+        answer:
+            "Nos planos Profissional e Premium, o valor mensal é multiplicado pelo número de usuários ativos de TI da empresa — pessoas com estação de trabalho, e-mail e acesso aos sistemas. Servidores, links e dispositivos de rede entram no escopo do plano sem contagem por usuário.",
     },
     {
         id: 2,
-        question: "Can I manage multiple brands or clients?",
-        answer: "Yes! The Scale Pro plan supports up to 5 brands, while Enterprise offers unlimited brand management capabilities."
+        question: "O plano Essencial atende chamados?",
+        answer:
+            "Sim. O Essencial mantém o ambiente monitorado, inventariado e atualizado, e os chamados de suporte são atendidos sob demanda, cobrados por hora técnica. Empresas que abrem chamados com frequência costumam migrar para o Profissional, onde o suporte é ilimitado.",
     },
     {
         id: 3,
-        question: "Is there a discount for annual billing?",
-        answer: "Yes, you can save 15% by choosing annual billing over monthly billing for any of our plans."
+        question: "Existe fidelidade ou prazo mínimo de contrato?",
+        answer:
+            "Trabalhamos com contrato de 12 meses para viabilizar o planejamento e o investimento inicial de onboarding. As condições são apresentadas na proposta, após o diagnóstico do ambiente.",
     },
     {
         id: 4,
-        question: "Do you offer special pricing for contractors?",
-        answer: "Yes, we offer special rates for independent contractors and small construction firms. Contact our sales team for more information."
+        question: "Como funciona a transição do meu suporte atual?",
+        answer:
+            "O onboarding começa com um diagnóstico completo: inventário, mapeamento de acessos, documentação e identificação de riscos. A partir dele, a Oliver assume a operação de forma gradual, sem interromper o dia a dia da empresa.",
     },
     {
         id: 5,
-        question: "How does the BIM integration work?",
-        answer: "Our Enterprise plan includes full BIM integration, allowing you to view and manage 3D models, coordinate with team members, and track changes in real-time."
+        question: "Os planos incluem licenças de software e hardware?",
+        answer:
+            "Os planos cobrem a gestão, o monitoramento e o suporte. Licenças (Microsoft 365, EDR, backup) e equipamentos são orçados à parte, com a Oliver conduzindo a compra, a padronização e o ciclo de vida no plano Premium.",
     },
     {
         id: 6,
-        question: "What kind of support do you provide?",
-        answer: "We offer email support for Starter plans, priority support for Professional plans, and 24/7 dedicated support with a personal account manager for Enterprise plans."
-    },
-    {
-        id: 7,
-        question: "Can I upgrade or downgrade my plan?",
-        answer: "Yes, you can change your plan at any time. If you upgrade, you'll be prorated for the remainder of your billing period. Downgrades take effect at the next billing cycle."
-    },
-    {
-        id: 8,
-        question: "Is mobile access available?",
-        answer: "Yes, all plans include access to our mobile app for iOS and Android, allowing you to manage projects on the go."
-    },
-    {
-        id: 9,
-        question: "What security measures do you have in place?",
-        answer: "We offer industry-standard security for all plans, with additional features like SSO, audit logs, and custom security policies available in the Enterprise plan."
-    }
-];
-
-export const PLANS_TABLE = [
-    {
-        id: 1,
-        title: 'Growth Starter',
-        priceMonthly: '$29',
-        priceYearly: "$290",
-        buttonText: 'Start free trial',
-        usage: {
-            members: '2 members',
-            contentGeneration: '1,000 words/mo',
-            socialChannels: '3 channels',
-            brands: '1 brand',
-        },
-        features: [
-            'Basic AI content generation',
-            'Social media scheduling',
-            'Content calendar',
-            'Basic analytics',
-            'Email marketing templates',
-            'Basic automation',
-            'Mobile app access',
-            'Community support',
-        ],
-    },
-    {
-        id: 2,
-        title: 'Scale Pro',
-        priceMonthly: '$79',
-        priceYearly: "$790",
-        buttonText: 'Scale now',
-        usage: {
-            members: '5 members',
-            contentGeneration: '10,000 words/mo',
-            socialChannels: 'All platforms',
-            brands: '5 brands',
-        },
-        features: [
-            'Advanced AI content generation',
-            'Custom AI training',
-            'Advanced automation',
-            'Campaign tracking',
-            'Performance analytics',
-            'A/B testing',
-            'Priority support',
-            'API access',
-            'Advanced reporting',
-        ],
-    },
-    {
-        id: 3,
-        title: 'Enterprise AI',
-        priceMonthly: '$199',
-        priceYearly: "$1990",
-        buttonText: 'Contact sales',
-        usage: {
-            members: 'Unlimited',
-            contentGeneration: 'Unlimited',
-            socialChannels: 'Unlimited',
-            brands: 'Unlimited',
-        },
-        features: [
-            'Custom AI solutions',
-            'Enterprise automation',
-            'Multi-brand management',
-            'Advanced security',
-            'Custom integrations',
-            'Dedicated support',
-            'Custom training',
-            'Enterprise analytics',
-            'Custom workflows',
-        ],
+        question: "Atendem empresas de qualquer porte?",
+        answer:
+            "Atendemos pequenas e médias empresas. O plano ideal depende do número de usuários, da criticidade da operação e da existência ou não de equipe de TI interna — algo que definimos juntos no diagnóstico.",
     },
 ];

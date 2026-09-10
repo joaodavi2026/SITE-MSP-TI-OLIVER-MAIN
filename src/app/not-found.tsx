@@ -6,8 +6,8 @@ import { ArrowLeftIcon } from "lucide-react";
 import Link from 'next/link';
 
 export const metadata = generateMetadata({
-    title: "404",
-    description: "The page you're looking for doesn't exist or has been moved.",
+    title: "Página não encontrada",
+    description: "A página que você procura não existe ou foi movida.",
     noIndex: true,
 });
 
@@ -21,15 +21,15 @@ const NotFoundPage = () => {
                             404
                         </span>
                         <h1 className="text-3xl md:text-5xl font-bold mt-5">
-                            Not Found
+                            Página não encontrada
                         </h1>
                         <p className="text-base text-muted-foreground mt-5 text-center mx-auto max-w-xl">
-                            This page doesn&apos;t exist. Please check the URL and try again.
+                            Esta página não existe. Verifique o endereço e tente novamente.
                         </p>
                         <Link href="/">
                             <Button variant="subtle" className="mt-8">
                                 <ArrowLeftIcon className="size-4" />
-                                Back
+                                Voltar ao início
                             </Button>
                         </Link>
                     </div>
